@@ -39,7 +39,7 @@ const MainPage = () => {
       return;
     }
 
-    const densityCorrectionResult = (tempValue * 0.66 + densityValue).toFixed(2);
+    const densityCorrectionResult = ((tempValue - 15 )* 0.66 + densityValue).toFixed(2);
     const correctionFactorResult = (parseFloat(densityCorrectionResult) + 1.4).toFixed(2);
 
     setDensityCorrection(densityCorrectionResult);
@@ -68,7 +68,7 @@ const MainPage = () => {
       return;
     }
 
-    const errorResult = (challanDensityValue - correctionFactorValue).toFixed(2);
+    const errorResult = ( correctionFactorValue-challanDensityValue).toFixed(2);
 
     setError(errorResult);
 
@@ -118,7 +118,7 @@ const MainPage = () => {
           <Text style={styles.label}>Temperature :</Text>
           <TextInput
             style={styles.inputHorizontal}
-            placeholder="Temperature"
+            placeholder="Temperature (°C)"
             value={temp}
             onChangeText={setTemp}
             keyboardType="numeric"
@@ -129,7 +129,7 @@ const MainPage = () => {
           <Text style={styles.label}>Actual Density :</Text>
           <TextInput
             style={styles.inputHorizontal}
-            placeholder="Actual Density"
+            placeholder="Actual Density (kg/m³)"
             value={density}
             onChangeText={setDensity}
             keyboardType="numeric"
@@ -162,7 +162,7 @@ const MainPage = () => {
           <Text style={styles.label}>Challan Density :</Text>
           <TextInput
             style={styles.inputHorizontal}
-            placeholder="Challan Density"
+            placeholder="Challan Density (kg/m³)"
             value={challanDensity}
             onChangeText={setChallanDensity}
             keyboardType="numeric"
@@ -190,7 +190,7 @@ const MainPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#b22222',
+    backgroundColor: '#704949',
   },
   header: {
     flexDirection: 'row',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 10,
     paddingBottom: 5,
-    backgroundColor: '#76b779',
+    backgroundColor: '#6f4d4d',
   },
   menuButton: {
     width: 28,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   button: {
     width: 120,
     height: 50,
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#903e3e',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
